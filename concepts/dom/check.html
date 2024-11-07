@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation Practice</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            text-align: center;
+        }
+        #myDiv {
+            color: white;
+            background-color: #4CAF50;
+            padding: 10px;
+            font-size: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #008CBA;
+            color: white;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #007BB5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="myDiv">Hello, World!</div>
+        <button class="btn" id="changeTextBtn">Change Text</button>
+        <button class="btn" id="changeColorBtn">Change Color</button>
+        <button class="btn" id="addElementBtn">Add Element</button>
+    </div>
+
+    <script>
+        const myDiv = document.getElementById('myDiv');
+        const changeTextBtn = document.getElementById('changeTextBtn');
+        const changeColorBtn = document.getElementById('changeColorBtn');
+        const addElementBtn = document.getElementById('addElementBtn');
+
+        changeTextBtn.addEventListener('click', () => {
+            myDiv.textContent = "You changed the text!";
+        });
+
+        changeColorBtn.addEventListener('click', () => {
+            myDiv.style.backgroundColor = "#FF5733";
+            myDiv.style.color = "white";
+        });
+
+        addElementBtn.addEventListener('click', () => {
+            const newElement = document.createElement('p');
+            newElement.textContent = "This is a new paragraph element!";
+            newElement.style.fontSize = '18px';
+            newElement.style.color = 'darkgreen';
+            document.body.appendChild(newElement);
+        });
+
+        const firstButton = document.querySelector('.btn');
+        firstButton.style.border = '2px solid black';
+
+        setTimeout(() => {
+            myDiv.innerHTML = "<strong>Content updated using innerHTML!</strong>";
+        }, 3000);
+    </script>
+</body>
+</html>
